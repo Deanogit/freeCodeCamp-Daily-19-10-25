@@ -12,10 +12,20 @@ function extractAttributes(element) {
   // return an array of strings
   // ["attribute1, value1", "attribute2, value2"]
   // space text equals quotes text quotes
-  const regex = /^[\s]([a-zA-Z]*)[\=][\"\']([a-zA-Z]*)[\"\']/g;
+  const regex = /([a-z\-]+)="([^"]*)"/gi;
 
-  const test = regex.test(element);
-  console.log(test);
+  const resultsArr = [];
+
+  // const test = regex.test(element)
+  // console.log(test)
+  const results = element.matchAll(regex);
+  console.log(results);
+
+  for (const result of results) {
+    resultsArr.push(`${result[1]}, ${result[2]}`);
+  }
+  console.log(resultsArr);
+  return resultsArr;
 
   // return element;
 }
