@@ -22,7 +22,10 @@ function extractAttributes(element) {
   console.log(results);
 
   for (const result of results) {
-    resultsArr.push(`${result[1]}, ${result[2]}`);
+    // resultsArr.push(`${result[1]}, ${result[2]}`);
+    // destructure result
+    const [full, attribute, value] = matchMedia;
+    resultsArr.push(`${attribute}, ${value}`);
   }
   console.log(resultsArr);
   return resultsArr;
